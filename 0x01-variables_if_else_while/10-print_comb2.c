@@ -6,16 +6,20 @@
 */
 int main(void)
 {
-int a;
+int units;
+int tens;
 
-for (a = 0; a <= 99; a++)
+for (tens = 0; tens <= 9; tens++)
 {
-putchar('0');
-putchar(a + '0');
-if (a != 99)
+for (units = 0; units <= 9; units++)
+{
+putchar(tens + '0');
+putchar(units + '0');
+if (!(tens == 9 && units == 9))
 {
 putchar(',');
 putchar(' ');
+}
 }
 }
 
