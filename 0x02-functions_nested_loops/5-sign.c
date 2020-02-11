@@ -1,12 +1,12 @@
 #include "holberton.h"
 /**
- * print_sing - print sings of the numbers
+ * print_sign - check the code for Holberton School students.
  * @n: An ascii char to compare
  * Return: 1 or 0.
  */
 int print_sign(int n)
 {
-if (n >= 0)
+if (n > 0)
 {
 _putchar ('+');
 return (1);
@@ -21,5 +21,4 @@ else
 _putchar ('-');
 return (-1);
 }
-
 }
