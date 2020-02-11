@@ -1,7 +1,7 @@
 #include "holberton.h"
 /**
- * print_sing.
- * @c: An ascii char to compare
+ * print_sing - print sings of the numbers
+ * @n: An ascii char to compare
  * Return: 1 or 0.
  */
 int print_sign(int n)
@@ -13,7 +13,7 @@ return (1);
 }
 else if (n == 0)
 {
-_putchar (0);
+_putchar ('0');
 return (0);
 }
 else
@@ -21,4 +21,5 @@ else
 _putchar ('-');
 return (-1);
 }
+
 }
