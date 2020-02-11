@@ -1,8 +1,8 @@
 #include "holberton.h"
 /**
- * print_alphabet_x10 - prints the alphabet in lowercase.
- *
- * Return: Always void.
+ * _islower - Retuns if the char sent is a lowercase.
+ * @c: An ascii char to compare
+ * Return: 1 or 0.
  */
 int _islower(int c)
 {
