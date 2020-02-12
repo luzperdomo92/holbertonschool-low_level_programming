@@ -16,7 +16,8 @@ for (multiplier = 0; multiplier <= 9; multiplier++)
 {
 result = multiplicand * multiplier;
 tens = result / 10;
-if (result > 0){
+if (result > 0)
+{
 if (tens > 0)
 {
 _putchar(tens + '0');
