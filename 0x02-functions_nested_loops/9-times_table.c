@@ -16,6 +16,7 @@ for (multiplier = 0; multiplier <= 9; multiplier++)
 {
 result = multiplicand * multiplier;
 tens = result / 10;
+if (result > 0){
 if (tens > 0)
 {
 _putchar(tens + '0');
@@ -23,6 +24,7 @@ _putchar(tens + '0');
 else
 {
 _putchar(' ');
+}
 }
 _putchar(result % 10 + '0');
 if (multiplier != 9)
