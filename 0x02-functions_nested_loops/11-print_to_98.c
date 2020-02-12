@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "holberton.h"
 /**
- * print_to_98 prints the numbers until 98
+ * print_to_98 - prints the numbers until 98
  * @n: init type int
  * Return: void
  */
