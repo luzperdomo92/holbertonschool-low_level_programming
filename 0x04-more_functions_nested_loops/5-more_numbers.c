@@ -6,13 +6,20 @@
  */
 void more_numbers(void)
 {
-int nums;
+int tent;
 int num;
-for (nums = 1; nums <= 10; nums++)
+int second_digit;
+
+for (tent = 1; tent <= 10; tent++)
 {
 for (num = 0; num <= 14; num++)
 {
-_putchar(num);
+second_digit = num / 10;
+if (second_digit != 0)
+{
+_putchar(second_digit + '0');
+}
+_putchar(num % 10 + '0');
 }
 _putchar('\n');
 }
