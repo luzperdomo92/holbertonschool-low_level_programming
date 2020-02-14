@@ -25,7 +25,7 @@ else
 {
 printf("%d", count);
 }
-if (count 100)
+if (count < 100)
 {
 printf(" ");
 }
@@ -33,4 +33,3 @@ printf(" ");
 printf("\n");
 return (0);
 }
-
