@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdbool.h>
 /**
  * print_number - print numbers.
  *@n: times _ prints
@@ -10,7 +9,7 @@ void print_number(int n)
 int div;
 int module;
 int div_result;
-bool first_not_zero = false;
+int first_not_zero = 0;
 if (n < 0)
 {
 _putchar ('-');
@@ -20,11 +19,11 @@ for (div = 1000000000; div >= 1; div = div / 10)
 {
 module = n % div;
 div_result = n / div;
-if ((first_not_zero == false && div_result != 0) || div == 1)
+if ((first_not_zero == 0 && div_result != 0) || div == 1)
 {
-first_not_zero = true;
+first_not_zero = 1;
 }
-if (first_not_zero == true)
+if (first_not_zero == 1)
 {
 _putchar(div_result + '0');
 }
