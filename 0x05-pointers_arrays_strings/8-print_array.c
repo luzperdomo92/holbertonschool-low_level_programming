@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
 * print_array - print array
-* @*a: an array of ints
+* @a: an array of ints
 * @n: size of the array
 * Return: void.
 */
