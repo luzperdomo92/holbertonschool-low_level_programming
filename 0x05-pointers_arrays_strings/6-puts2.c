@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 /**
  * puts2 - prints every other character a string.
  *@str:an array of int
