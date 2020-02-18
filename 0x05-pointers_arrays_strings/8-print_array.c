@@ -1,3 +1,4 @@
+#include "holberton.h"
 #include <stdio.h>
 /**
 * print_array - print array
@@ -11,13 +12,11 @@ int v;
 for (v = 0; v < n; v++)
 {
 printf("%d", a[v]);
-if (v == n - 1)
-{
-printf("\n");
-}
-else
+if (v != n - 1)
 {
 printf(", ");
 }
 }
+printf("\n");
 }
+
