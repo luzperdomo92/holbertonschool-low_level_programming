@@ -6,10 +6,16 @@
 */
 char *_strcpy(char *dest, char *src)
 {
-int a;
-for (a = 0; src[a] != '\0'; a++)
+int a = 0;
+int interate = 1;
+while (interate == 1)
 {
 dest[a] = src[a];
+a++;
+if (src[a] == '\0')
+{
+interate = 0;
+}
 }
 return (dest);
 }
