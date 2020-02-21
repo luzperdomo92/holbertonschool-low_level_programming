@@ -1,3 +1,4 @@
+/**
 * reverse_array -  prints a string in reverse
 *@a:an array of int
 *@n:size
