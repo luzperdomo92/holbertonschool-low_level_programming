@@ -11,9 +11,9 @@ char *_strchr(char *s, char c)
 int count;
 char *pointer = NULL;
 
-if (s == NULL || c == NULL)
+if (s == NULL || !c)
 {
-return (0);
+return (NULL);
 }
 for (count = 0; s[count] != '\0'; count++)
 {
