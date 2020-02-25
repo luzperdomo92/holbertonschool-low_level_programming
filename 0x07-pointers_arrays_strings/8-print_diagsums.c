@@ -16,10 +16,12 @@ for (count_xy = 0; count_xy < size * size; count_xy += size + 1)
 {
 sum = sum + a[count_xy];
 }
-for (count_i_xy = size - 1; count_i_xy < size * size - 1;
+
+for (count_i_xy = size - 1; count_i_xy < (size * size) - size;
 count_i_xy += size - 1)
 {
 sum_i = sum_i + a[count_i_xy];
 }
 printf("%d, %d \n", sum, sum_i);
 }
+
