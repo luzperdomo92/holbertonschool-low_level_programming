@@ -21,6 +21,6 @@ count_i_xy += size - 1)
 {
 sum_i = sum_i + a[count_i_xy];
 }
-printf("%d, %d \n", sum, sum_i);
+printf("%d, %d\n", sum, sum_i);
 }
 
