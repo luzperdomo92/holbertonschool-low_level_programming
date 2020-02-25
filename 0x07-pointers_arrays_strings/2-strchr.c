@@ -22,7 +22,7 @@ break;
 
 if (s[count] == c)
 {
-  pointer = &s[count];
+pointer = &s[count];
 }
 
 return (pointer);
