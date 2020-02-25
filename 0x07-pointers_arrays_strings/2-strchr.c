@@ -13,7 +13,7 @@ char *pointer = NULL;
 
 if (s == NULL || !c)
 {
-return (NULL);
+return (0);
 }
 for (count = 0; s[count] != '\0'; count++)
 {
