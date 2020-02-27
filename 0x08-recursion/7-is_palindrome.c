@@ -1,5 +1,19 @@
 #include "holberton.h"
 /**
+ * _strlen_recursion - prints the length of the string.
+ *@s: char variable
+ * Return: Always 0.
+ */
+int _strlen_recursion(char *s)
+{
+if (*s != '\0')
+{
+return (_strlen_recursion(s + 1) + 1);
+}
+return (0);
+}
+
+/**
  * real_is_palindrome - find palindrome worlds
  *@s: char variable
  *@length: int variable
@@ -29,11 +43,7 @@ return (real_is_palindrome(s, length, pointer + 1));
  */
 int is_palindrome(char *s)
 {
-int length = 0;
 int pointer = 0;
-while (s[length] != '\0')
-{
-length++;
-}
+int length = _strlen_recursion(s);
 return (real_is_palindrome(s, length - 1, pointer));
 }
