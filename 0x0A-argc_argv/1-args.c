@@ -1,6 +1,12 @@
 #include <stdio.h>
-int main (int argv,__attribute__((unused))char **argc)
+/**
+  * main - main variable
+  *@argc: int variable
+  *@argv:char variable
+  * Return: zero
+  **/
+int main(int argv, __attribute__((unused))char **argc)
 {
-	printf("%d\n",argv -1);
-	return(0);
+	printf("%d\n", argv - 1);
+	return (0);
 }
