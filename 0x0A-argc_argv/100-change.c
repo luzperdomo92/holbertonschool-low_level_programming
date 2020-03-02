@@ -29,7 +29,7 @@ int main(int argc, char **argv)
 
 	while (amount > 0)
 	{
-		if (amount + coins[coin_move] < 0)
+		if (amount -s coins[coin_move] < 0)
 		{
 			coin_move++;
 		}
