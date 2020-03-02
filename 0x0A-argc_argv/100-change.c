@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 		return (0);
 	}
 
-	while (amount != change)
+	while (amount > change)
 	{
 		if (change + coins[coin_move] > amount)
 		{
