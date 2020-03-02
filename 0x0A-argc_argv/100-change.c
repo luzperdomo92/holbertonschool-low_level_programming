@@ -11,7 +11,6 @@ int main(int argc, char **argv)
 	int coins[] = { 25, 10, 5, 2, 1 };
 	int coin_move = 0;
 	int amount;
-	int change = 0;
 	int coins_count = 0;
 
 	if (argc != 2)
@@ -28,15 +27,15 @@ int main(int argc, char **argv)
 		return (0);
 	}
 
-	while (amount > change)
+	while (amount > 0)
 	{
-		if (change + coins[coin_move] > amount)
+		if (amount + coins[coin_move] < 0)
 		{
 			coin_move++;
 		}
 		else
 		{
-			change += coins[coin_move];
+			amount -= coins[coin_move];
 			coins_count++;
 		}
 	}
@@ -44,3 +43,4 @@ int main(int argc, char **argv)
 	printf("%d\n", coins_count);
 	return (0);
 }
+
