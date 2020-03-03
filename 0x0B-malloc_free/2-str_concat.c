@@ -44,6 +44,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		pointer[size_of + length_of] = s2[length_of];
 	}
-	pointer[size_of + length_of + 1] = '\0';
+	pointer[(size_of + length_of) + 1] = '\0';
 	return (pointer);
 }
