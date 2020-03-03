@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "holberton.h"
 /**
- * strdup - function to copy
+ * _strdup - function to copy
  *@str: char variable
  * Return: pointer
  */
@@ -15,7 +15,7 @@ char *_strdup(char *str)
 	{
 		return (NULL);
 	}
-	pointer = malloc(sizeof(*str));
+	pointer = malloc(sizeof(char));
 	for (len = 0; str[len]; len++)
 	{
 		pointer[len] = str[len];
