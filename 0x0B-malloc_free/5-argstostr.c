@@ -27,7 +27,7 @@ int get_concat_size(int ac, char **av)
 		arg_size++;
 		concat_size += arg_size;
 	}
-
+	concant_size++;
 	return (concat_size);
 }
 /**
