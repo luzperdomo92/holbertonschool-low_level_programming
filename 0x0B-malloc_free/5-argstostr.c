@@ -56,6 +56,7 @@ void concat_args(int ac, char **av, char *concat)
 		concat[concat_i] = '\n';
 		concat_i++;
 	}
+	concat[concat_i] = '\0';
 }
 /**
  * argstostr - function
