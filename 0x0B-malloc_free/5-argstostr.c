@@ -77,7 +77,7 @@ char *argstostr(int ac, char **av)
 	concat = malloc(sizeof(int) * concat_size);
 	if (concat == NULL)
 	{
-		return (NULL);
+		return (0);
 	}
 
 	concat_args(ac, av, concat);
