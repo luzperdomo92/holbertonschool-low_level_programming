@@ -70,7 +70,7 @@ char *argstostr(int ac, char **av)
 	char *concat;
 	int concat_size;
 
-	if (ac <= 0)
+	if (ac <= 0 || av == NULL)
 	{
 		return (NULL);
 	}
