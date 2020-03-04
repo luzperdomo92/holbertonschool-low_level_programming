@@ -5,7 +5,7 @@
  * alloc_grid - function
  *@width: char variable
  *@height: char variable
- *Return:pointer
+ * Return: pointer
  */
 int **alloc_grid(int width, int height)
 {
@@ -27,9 +27,12 @@ int **alloc_grid(int width, int height)
 		pointer[height_i] = malloc(sizeof(int) * width);
 		if (pointer[height_i] == NULL)
 		{
+			for (; height_i >= 0; height_i--)
+			{
+				free(pointer[height_i]);
+			}
 			return (NULL);
 		}
 	}
-
 	return (pointer);
 }
