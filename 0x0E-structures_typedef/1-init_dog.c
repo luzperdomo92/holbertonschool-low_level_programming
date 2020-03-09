@@ -1,5 +1,5 @@
-#ifndef DOG_H
-#define DOG_H
+#include<stdio.h>
+#include "dog.h"
 /**
  * init_dog - inizialize dog struct
  * @name: name of the dog
