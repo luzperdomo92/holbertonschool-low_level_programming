@@ -11,7 +11,6 @@
 int main(int argc, char **argv)
 {
 	int a, b;
-	char *op;
 	char op_c;
 
 	if (argc < 4)
