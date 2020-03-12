@@ -31,12 +31,6 @@ int main(int argc, char **argv)
 	}
 
 	op_c = *argv[2];
-	if ((op_c == '/' || op_c == '%') && b == 0)
-	{
-		printf("Error\n");
-		return (100);
-	}
-
 	printf("%d\n", op(a, b));
 
 	return (0);
