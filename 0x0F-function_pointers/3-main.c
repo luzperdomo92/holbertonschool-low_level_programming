@@ -14,7 +14,7 @@ int main(int argc, char **argv)
 	char op_c;
 	int (*op)(int, int);
 
-	if (argc < 4)
+	if (argc != 4)
 	{
 		printf("Error\n");
 		return (98);
