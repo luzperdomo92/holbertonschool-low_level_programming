@@ -11,7 +11,6 @@
 int main(int argc, char **argv)
 {
 	int a, b;
-	char op_c;
 	int (*op)(int, int);
 
 	if (argc != 4)
@@ -30,7 +29,6 @@ int main(int argc, char **argv)
 		return (99);
 	}
 
-	op_c = *argv[2];
 	printf("%d\n", op(a, b));
 
 	return (0);
