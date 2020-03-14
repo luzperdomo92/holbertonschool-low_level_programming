@@ -13,7 +13,7 @@ void print_all(const char * const format, ...)
 	int flag_flound;
 
 	va_start(valist, format);
-	while (format[format_i] != '\0')
+	while (format != NULL && format[format_i] != '\0')
 	{
 		flag_flound = 1;
 		switch (format[format_i])
