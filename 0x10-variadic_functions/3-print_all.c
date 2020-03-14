@@ -42,9 +42,7 @@ void print_all(const char * const format, ...)
 		}
 		format_i++;
 		if (flag_flound == 1 && format[format_i] != '\0')
-		{
 			printf(", ");
-		}
 	}
 	va_end(valist);
 	printf("\n");
