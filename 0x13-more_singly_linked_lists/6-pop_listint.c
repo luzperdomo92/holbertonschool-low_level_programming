@@ -1,7 +1,7 @@
 #include "lists.h"
 /**
  * pop_listint -  deletes the head node
- * @head: parameter to be set. 
+ * @head: parameter to be set.
  * Return: the head node’s data (n).
  */
 int pop_listint(listint_t **head)
