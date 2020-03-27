@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * clear_bit -  returns the number of bits you would need to flip
+ * flip_bits -  returns the number of bits you would need to flip
  * @n: integer to compare
  * @m: integer to compare
  * Return: number of bits you would need to flip
