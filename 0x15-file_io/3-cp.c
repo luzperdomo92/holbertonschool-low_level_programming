@@ -22,17 +22,15 @@ int open_file_from(const char *filename)
 /**
  * open_file_to - open the file_from
  * @filename: name of the file
- * @file_desc_from: file_desc of file_from
  * Return: a file_desc
  */
-int open_file_to(const char *filename, int file_desc_from)
+int open_file_to(const char *filename)
 {
 	int file_desc;
 
 	file_desc = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file_desc == -1)
 	{
-		close(file_desc_from);
 		dprintf(2, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
@@ -66,12 +64,11 @@ ssize_t read_from(const char *filename, int file_desc,  char *buffer,
  * write_to - open the file_from
  * @filename: name of the file
  * @file_desc_to: file_desc of file_to
- * @file_desc_from: file_desc of file_from
  * @buffer: buffer to read
  * @letters: size of buffer
  * Return: write in file_desc_to
  */
-int write_to(const char *filename, int file_desc_to, int file_desc_from,
+int write_to(const char *filename, int file_desc_to,
 	     char *buffer, ssize_t letters)
 {
 	int write_file;
@@ -79,8 +76,6 @@ int write_to(const char *filename, int file_desc_to, int file_desc_from,
 	write_file = write(file_desc_to, buffer, letters);
 	if (write_file == -1)
 	{
-		close(file_desc_from);
-		close(file_desc_to);
 		dprintf(2, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
@@ -109,11 +104,11 @@ int main(int ac, char **av)
 	file_from = av[1];
 	file_to = av[2];
 	file_desc_from = open_file_from(file_from);
-	file_desc_to = open_file_to(file_to, file_desc_from);
+	file_desc_to = open_file_to(file_to);
 	buffer_readed = read_from(file_from, file_desc_from, buffer, letters);
 	while (buffer_readed > 0)
 	{
-		write_to(file_to, file_desc_to, file_desc_from, buffer, buffer_readed);
+		write_to(file_to, file_desc_to, buffer, buffer_readed);
 		buffer_readed = read_from(file_from, file_desc_from, buffer, letters);
 	}
 	if (close(file_desc_from) == -1)
