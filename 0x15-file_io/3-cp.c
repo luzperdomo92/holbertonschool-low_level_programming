@@ -12,7 +12,7 @@ int open_file_from(const char *filename)
 	file_desc = open(filename, O_RDONLY);
 	if (file_desc == -1)
 	{
-		dprintf(2, "Can't read from file %s\n", filename);
+		dprintf(2, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
 
@@ -55,7 +55,7 @@ ssize_t read_from(const char *filename, int file_desc,  char *buffer,
 	read_file = read(file_desc, buffer, letters);
 	if (read_file == -1)
 	{
-		dprintf(2, "Can't read from file %s\n", filename);
+		dprintf(2, "Error: Can't read from file %s\n", filename);
 		exit(98);
 	}
 
