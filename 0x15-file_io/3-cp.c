@@ -39,14 +39,14 @@ int open_file_to(const char *filename, int file_desc_from)
 }
 
 /**
- * read_textfile - open the file_from
+ * read_from - open the file_from
  * @filename: name of the file
  * @file_desc: file_desc of file_from
  * @buffer: buffer to read
  * @letters: size of buffer
  * Return: a file_desc
  */
-ssize_t read_textfile(const char *filename, int file_desc,  char *buffer, size_t letters)
+ssize_t read_from(const char *filename, int file_desc,  char *buffer, size_t letters)
 {
 	int read_file;
 
@@ -62,7 +62,7 @@ ssize_t read_textfile(const char *filename, int file_desc,  char *buffer, size_t
 }
 
 /**
- * create_file - open the file_from
+ * write_to - open the file_from
  * @filename: name of the file
  * @file_desc_to: file_desc of file_to
  * @file_desc_from: file_desc of file_from
@@ -70,7 +70,7 @@ ssize_t read_textfile(const char *filename, int file_desc,  char *buffer, size_t
  * @letters: size of buffer
  * Return: write in file_desc_to
  */
-int create_file(const char *filename, int file_desc_to, int file_desc_from, char *buffer, size_t letters)
+int write_to(const char *filename, int file_desc_to, int file_desc_from, char *buffer, size_t letters)
 {
 	int write_file;
 
@@ -120,9 +120,9 @@ int main(int ac, char **av)
 		return (1);
 	}
 
-	while(read_textfile(file_from, file_desc_from, buffer, letters) > 0)
+	while(read_from(file_from, file_desc_from, buffer, letters) > 0)
 	{
-		create_file(file_to, file_desc_from, file_desc_to, buffer, letters);
+		write_to(file_to, file_desc_from, file_desc_to, buffer, letters);
 	}
 
 	if (close(file_desc_to) == -1)
@@ -139,4 +139,3 @@ int main(int ac, char **av)
 	}
 	return (0);
 }
-
