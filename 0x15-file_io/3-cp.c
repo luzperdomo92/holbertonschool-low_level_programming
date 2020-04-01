@@ -70,7 +70,7 @@ ssize_t read_from(const char *filename, int file_desc,  char *buffer, size_t let
  * @letters: size of buffer
  * Return: write in file_desc_to
  */
-int write_to(const char *filename, int file_desc_to, int file_desc_from, char *buffer, size_t letters)
+int write_to(const char *filename, int file_desc_to, int file_desc_from, char *buffer, ssize_t letters)
 {
 	int write_file;
 
@@ -100,6 +100,7 @@ int main(int ac, char **av)
 	int file_desc_from;
 	int file_desc_to;
 	size_t letters = 1024;
+	ssize_t buffer_readed;
 	char *buffer;
 
 	if (ac != 3)
@@ -120,9 +121,12 @@ int main(int ac, char **av)
 		return (1);
 	}
 
-	while(read_from(file_from, file_desc_from, buffer, letters) > 0)
+	buffer_readed = read_from(file_from, file_desc_from, buffer, letters);
+	while(buffer_readed > 0)
 	{
-		write_to(file_to, file_desc_from, file_desc_to, buffer, letters);
+		write_to(file_to, file_desc_to, file_desc_from, buffer, buffer_readed);
+
+		buffer_readed = read_from(file_from, file_desc_from, buffer, letters);
 	}
 
 	if (close(file_desc_to) == -1)
