@@ -12,7 +12,7 @@ int open_file_from(const char *filename)
 	file_desc = open(filename, O_RDONLY);
 	if (file_desc == -1)
 	{
-		dprintf(2, "Cant read from file %s\n", filename);
+		dprintf(2, "Can't read from file %s\n", filename);
 		exit(98);
 	}
 
@@ -33,7 +33,7 @@ int open_file_to(const char *filename, int file_desc_from)
 	if (file_desc == -1)
 	{
 		close(file_desc_from);
-		dprintf(2, "Error: Cant write to %s\n", filename);
+		dprintf(2, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 	return (file_desc);
@@ -48,14 +48,14 @@ int open_file_to(const char *filename, int file_desc_from)
  * Return: a file_desc
  */
 ssize_t read_from(const char *filename, int file_desc,  char *buffer,
-size_t letters)
+		  size_t letters)
 {
 	int read_file;
 
 	read_file = read(file_desc, buffer, letters);
 	if (read_file == -1)
 	{
-		dprintf(2, "Cant read from file %s\n", filename);
+		dprintf(2, "Can't read from file %s\n", filename);
 		exit(98);
 	}
 
@@ -72,7 +72,7 @@ size_t letters)
  * Return: write in file_desc_to
  */
 int write_to(const char *filename, int file_desc_to, int file_desc_from,
-char *buffer, ssize_t letters)
+	     char *buffer, ssize_t letters)
 {
 	int write_file;
 
@@ -81,7 +81,7 @@ char *buffer, ssize_t letters)
 	{
 		close(file_desc_from);
 		close(file_desc_to);
-		dprintf(2, "Error: Cant write to %s\n", filename);
+		dprintf(2, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 	return (1);
@@ -118,12 +118,12 @@ int main(int ac, char **av)
 	}
 	if (close(file_desc_to) == -1)
 	{
-		dprintf(2, "Error: Cant close fd %d\n", file_desc_to);
+		dprintf(2, "Error: Can't close fd %d\n", file_desc_to);
 		exit(100);
 	}
 	if (close(file_desc_from) == -1)
 	{
-		dprintf(2, "Error: Cant close fd %d\n", file_desc_to);
+		dprintf(2, "Error: Can't close fd %d\n", file_desc_to);
 		exit(100);
 	}
 	return (0);
