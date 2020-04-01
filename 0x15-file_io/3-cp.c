@@ -123,7 +123,7 @@ int main(int ac, char **av)
 	}
 	if (close(file_desc_from) == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", file_desc_to);
+		dprintf(2, "Error: Can't close fd %d\n", file_desc_from);
 		exit(100);
 	}
 	return (0);
