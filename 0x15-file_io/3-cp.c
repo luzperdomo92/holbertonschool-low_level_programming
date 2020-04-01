@@ -28,7 +28,7 @@ int open_file_to(const char *filename, int file_desc_from)
 {
 	int file_desc;
 
-	file_desc = open(filename, O_RDWR | O_CREAT | O_TRUNC, 664);
+	file_desc = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if(file_desc == -1)
 	{
 		close(file_desc_from);
