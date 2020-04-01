@@ -116,15 +116,16 @@ int main(int ac, char **av)
 		write_to(file_to, file_desc_to, file_desc_from, buffer, buffer_readed);
 		buffer_readed = read_from(file_from, file_desc_from, buffer, letters);
 	}
-	if (close(file_desc_to) == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", file_desc_to);
-		exit(100);
-	}
 	if (close(file_desc_from) == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", file_desc_from);
 		exit(100);
 	}
+	if (close(file_desc_to) == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", file_desc_to);
+		exit(100);
+	}
+
 	return (0);
 }
