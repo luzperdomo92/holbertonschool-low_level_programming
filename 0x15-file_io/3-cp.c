@@ -55,7 +55,6 @@ size_t letters)
 	read_file = read(file_desc, buffer, letters);
 	if (read_file == -1)
 	{
-		free(buffer);
 		dprintf(2, "Cant read from file %s\n", filename);
 		exit(98);
 	}
@@ -80,7 +79,6 @@ char *buffer, ssize_t letters)
 	write_file = write(file_desc_to, buffer, letters);
 	if (write_file == -1)
 	{
-		free(buffer);
 		close(file_desc_from);
 		close(file_desc_to);
 		dprintf(2, "Error: Cant write to %s\n", filename);
@@ -98,10 +96,10 @@ char *buffer, ssize_t letters)
  */
 int main(int ac, char **av)
 {
-	char *file_from,  *file_to, *buffer;
-	int file_desc_from, file_desc_to;
 	size_t letters = 1024;
 	ssize_t buffer_readed;
+	char *file_from,  *file_to, buffer[1024];
+	int file_desc_from, file_desc_to;
 
 	if (ac != 3)
 	{
@@ -110,11 +108,8 @@ int main(int ac, char **av)
 	}
 	file_from = av[1];
 	file_to = av[2];
-	buffer = malloc(letters);
 	file_desc_from = open_file_from(file_from);
 	file_desc_to = open_file_to(file_to, file_desc_from);
-	if (buffer == NULL)
-		return (1);
 	buffer_readed = read_from(file_from, file_desc_from, buffer, letters);
 	while (buffer_readed > 0)
 	{
@@ -123,13 +118,11 @@ int main(int ac, char **av)
 	}
 	if (close(file_desc_to) == -1)
 	{
-		free(buffer);
 		dprintf(2, "Error: Cant close fd %d\n", file_desc_to);
 		exit(100);
 	}
 	if (close(file_desc_from) == -1)
 	{
-		free(buffer);
 		dprintf(2, "Error: Cant close fd %d\n", file_desc_to);
 		exit(100);
 	}
