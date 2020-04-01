@@ -8,11 +8,12 @@
 int open_file_from(const char *filename)
 {
 	int file_desc;
+
 	file_desc = open(filename, O_RDONLY);
 	if (file_desc == -1)
 	{
 		dprintf(2, "Cant read from file %s\n", filename);
-		exit (98);
+		exit(98);
 	}
 
 	return (file_desc);
@@ -29,11 +30,11 @@ int open_file_to(const char *filename, int file_desc_from)
 	int file_desc;
 
 	file_desc = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if(file_desc == -1)
+	if (file_desc == -1)
 	{
 		close(file_desc_from);
 		dprintf(2, "Error: Cant write to %s\n", filename);
-		exit (99);
+		exit(99);
 	}
 	return (file_desc);
 }
@@ -46,7 +47,8 @@ int open_file_to(const char *filename, int file_desc_from)
  * @letters: size of buffer
  * Return: a file_desc
  */
-ssize_t read_from(const char *filename, int file_desc,  char *buffer, size_t letters)
+ssize_t read_from(const char *filename, int file_desc,  char *buffer,
+size_t letters)
 {
 	int read_file;
 
@@ -55,7 +57,7 @@ ssize_t read_from(const char *filename, int file_desc,  char *buffer, size_t let
 	{
 		free(buffer);
 		dprintf(2, "Cant read from file %s\n", filename);
-		exit (98);
+		exit(98);
 	}
 
 	return (read_file);
@@ -70,7 +72,8 @@ ssize_t read_from(const char *filename, int file_desc,  char *buffer, size_t let
  * @letters: size of buffer
  * Return: write in file_desc_to
  */
-int write_to(const char *filename, int file_desc_to, int file_desc_from, char *buffer, ssize_t letters)
+int write_to(const char *filename, int file_desc_to, int file_desc_from,
+char *buffer, ssize_t letters)
 {
 	int write_file;
 
@@ -81,9 +84,9 @@ int write_to(const char *filename, int file_desc_to, int file_desc_from, char *b
 		close(file_desc_from);
 		close(file_desc_to);
 		dprintf(2, "Error: Cant write to %s\n", filename);
-		exit (99);
+		exit(99);
 	}
-	return(1);
+	return (1);
 }
 
 
@@ -95,51 +98,40 @@ int write_to(const char *filename, int file_desc_to, int file_desc_from, char *b
  */
 int main(int ac, char **av)
 {
-	char *file_from;
-	char *file_to;
-	int file_desc_from;
-	int file_desc_to;
+	char *file_from,  *file_to, *buffer;
+	int file_desc_from, file_desc_to;
 	size_t letters = 1024;
 	ssize_t buffer_readed;
-	char *buffer;
 
 	if (ac != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-
 	file_from = av[1];
 	file_to = av[2];
-
 	buffer = malloc(letters);
 	file_desc_from = open_file_from(file_from);
 	file_desc_to = open_file_to(file_to, file_desc_from);
-
-	if(buffer == NULL)
-	{
+	if (buffer == NULL)
 		return (1);
-	}
-
 	buffer_readed = read_from(file_from, file_desc_from, buffer, letters);
-	while(buffer_readed > 0)
+	while (buffer_readed > 0)
 	{
 		write_to(file_to, file_desc_to, file_desc_from, buffer, buffer_readed);
-
 		buffer_readed = read_from(file_from, file_desc_from, buffer, letters);
 	}
-
 	if (close(file_desc_to) == -1)
 	{
 		free(buffer);
 		dprintf(2, "Error: Cant close fd %d\n", file_desc_to);
-		exit (100);
+		exit(100);
 	}
 	if (close(file_desc_from) == -1)
 	{
 		free(buffer);
 		dprintf(2, "Error: Cant close fd %d\n", file_desc_to);
-		exit (100);
+		exit(100);
 	}
 	return (0);
 }
