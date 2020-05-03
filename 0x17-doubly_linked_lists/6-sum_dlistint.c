@@ -1,6 +1,6 @@
 #include "lists.h"
 /**
- * sum_listint -  sum of all the data (n).
+ * sum_dlistint -  sum of all the data (n).
  * @head: parameter to be set.
  * Return: the sum of all the data (n).
  */
