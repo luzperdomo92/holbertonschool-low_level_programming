@@ -1,15 +1,15 @@
 #include "lists.h"
 
 /**
- * add_node - adds a new node at the beginning of a list_t list
+ * add_dnodeint - adds a new node at the beginning of a list_t list
  * @head: start of the linked list
- * @str: string to be set as attribute of the next head.
- * Return: the number of nodes.
+ * @n: integer to be set as attribute of the next head.
+ * Return: the new node inserted.
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *new;
-  dlistint_t *head_node = *head;
+	dlistint_t *head_node = *head;
 
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
