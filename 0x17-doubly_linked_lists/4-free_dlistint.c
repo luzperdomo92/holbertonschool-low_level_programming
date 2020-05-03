@@ -1,4 +1,3 @@
-  
 #include "lists.h"
 /**
  * free_dlistint - free the allocate memory
