@@ -1,5 +1,9 @@
 #ifndef HOLBERTON_H
 #define HOLBERTON_H
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
 #define EXIT_SUCCESS 0
 #include <unistd.h>
