@@ -11,11 +11,14 @@ void hash_table_delete(hash_table_t *ht)
 	hash_node_t *node_del;
 	hash_node_t *temp;
 
-	if (ht->array)
+	if (!ht)
+		return;
+
+	for (i = 0; i < ht->size; i++)
 	{
-		for (i = 0; i < ht->size; i++)
+		node_del = ht->array[i];
+		if (node_del)
 		{
-			node_del = ht->array[i];
 			while (node_del)
 			{
 				temp = node_del;
