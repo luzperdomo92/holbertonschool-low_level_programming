@@ -7,7 +7,7 @@
  * @value: is the value to search for.
  * Return: the index where value is located.
  */
- int binary_search(int *array, size_t size, int value)
+int binary_search(int *array, size_t size, int value)
 {
 	size_t max = size - 1;
 	size_t min = 0;
